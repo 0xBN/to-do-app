@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Todo-List</title>
+</head>
+<body>
+    <header>
+
+        <!-- Title and Category -->
+        <div>
+            <h1>To Do List: <div data-current-list class="current-list">Main</div></h1>
+        </div>
+
+<!-- Category buttons -->
+        <div class="choose-category">
+            <button data-category-button class="category-button">Main</button>
+            <button data-category-button class="category-button">Home</button>
+            <button data-category-button class="category-button">Work</button>
+            <button data-category-button class="category-button">Chores</button>
+            <button data-category-button class="category-button">All</button>
+        </div>
+
+<!-- New to do form button -->
+        <div class="spaced-buttons">
+            <button data-new-todo-button>
+                + New Todo
+            </button>
+            <button data-collapse-new-todo-button class="hidden delete-button">- collapse -</button>
+        </div>
+        <div data-alert-message class="hidden">Good!</div>
+
+<!-- Form -->
+        <div class="new-todo-area hidden" id="new-todo-container">
+            <form id="new-form">
+                <div class="form-row">
+                    <input type="text" id="new-due-date" class="new-due-date" placeholder ="Date" >
+                </div>
+                <div class="form-row">
+                    <input type="text" id="new-title" class="new-title" placeholder="Title">
+                </div>
+                <div class="form-row">
+                    <input type="text" id="new-description" class="new-description" placeholder ="Description" >
+                </div>
+                <div class="form-row">
+                    <input type="text" id="new-priority" class="new-priority" placeholder ="Priority" >
+                </div>
+                <div class="form-row">
+                    <input type="text" id="new-notes" class="new-notes" placeholder ="Notes" >
+                </div>
+                <div class="form-row">
+                    <input type="text" id="new-category" class="new-category" placeholder ="Category" >
+                </div>
+                <div class="spaced-buttons">
+                    <button data-submit-new-todo class="add-todo" type="button">Submit To do</button>
+                    <button data-clear-new-todo class="red-button" type="button">X</button>
+                </div>
+            </form>
+        </div>
+    
+    </header>
+
+<!-- Append To Do Cards here: To do card container -->
+    <div data-todo-list class="todo-container">
+
+<!-- To do card 1 example -->
+        <!-- <div class="todo-card category-main hidden">
+            <div class="nav-bar">
+                <button class="expand-button">+</button>
+            </div>
+            <div class="card-shown">
+                <div class="title">
+                    <div class="label due-date priority-low">Due 9/1/22</div>
+                    <div class="value">HTML Example:Take out the trash</div>
+                </div>
+            </div>
+            <div class="card-details"> 
+                <div class="description">
+                    <div class="label">Description</div>
+                    <div class="value">Need this and that...</div>
+                </div>
+                <div class="priority">
+                    <div class="label">Priority</div>
+                    <div class="value">High</div>
+                </div>
+                <div class="notes">
+                    <div class="label">Notes</div>
+                    <div class="value">Notes are...</div>
+                </div>
+                <div class="category">
+                    <div class="label">Category</div>
+                    <div class="value">main</div>
+                </div>
+                <div class="spaced-buttons">
+                    <button class="edit-button">✏️</button>
+                    <button class="delete-button">Delete</button>
+                </div>
+            </div>
+        </div> -->
+
+<!-- To do card 2 example -->
+        <!-- <div class="todo-card category-chores">
+            <div class="nav-bar">
+                <button class="expand-button">+</button>
+            </div>
+            <div class="card-shown">
+                <div class="title">
+                    <div class="label priority-low">Due 9/1/22</div>
+                    <div class="value">Take out the trash</div>
+                </div>
+            </div>
+            <div class="card-details"> 
+                <div class="description">
+                    <div class="label">Description</div>
+                    <div class="value">Need this and that...</div>
+                </div>
+                <div class="priority">
+                    <div class="label">Priority</div>
+                    <div class="value">High</div>
+                </div>
+                <div class="notes">
+                    <div class="label">Notes</div>
+                    <div class="value">Notes are...</div>
+                </div>
+                <div class="category">
+                    <div class="label">Category</div>
+                    <div class="value">default</div>
+                </div>
+                <div class="spaced-buttons">
+                    <button class="edit">✏️</button>
+                    <button class="delete-button">Delete</button>
+                </div>
+            </div>
+        </div> -->
+
+
+    </div>
+
+<!-- Form that edits to do's -->
+<div data-edit-todo-area class="edit-todo-area hidden" id="edit-todo-container">
+    <div>Edit To Do</div>
+    <form id="edit-form">
+        <div class="form-row">
+            <input type="text" id="edit-due-date" class="edit-due-date" placeholder ="Date" >
+        </div>
+        <div class="form-row">
+            <input type="text" id="edit-title" class="edit-title" placeholder="Title">
+        </div>
+        <div class="form-row">
+            <input type="text" id="edit-description" class="edit-description" placeholder ="Description" >
+        </div>
+        <div class="form-row">
+            <input type="text" id="edit-priority" class="edit-priority" placeholder ="Priority" >
+        </div>
+        <div class="form-row">
+            <input type="text" id="edit-notes" class="edit-notes" placeholder ="Notes" >
+        </div>
+        <div class="form-row">
+            <input type="text" id="edit-category" class="edit-category" placeholder ="Category" >
+        </div>
+        <div class="spaced-buttons">
+            <button data-submit-edit-todo class="add-todo" type="button">Confirm</button>
+            <button data-cancel-edit class="delete-button" type="button">Cancel</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
